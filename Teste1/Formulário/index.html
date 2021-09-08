@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - Teste 01</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <form class="formulario" method="POST">
+        <h1>Cadastro Learn Way</h1>
+        <br>
+        <div class="container">
+            <label for="name">Nome Completo:</label>
+            <input type="text" name="name" id="name" onkeyup="countChars(this)">
+            <p id="count">0 caracteres</p>
+        </div>
+        <br>
+        <div class="container">
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <br>
+        <div class="container">
+            <label for="aboutme">Fale um pouco sobre você:</label>
+            <textarea name="aboutme" id="toCount" cols="30" rows="10"></textarea>
+            <p id="countWord"><span id="wordCount">0</span> palavras</p>
+        </div>
+        <br>
+        <div class="container">
+            <label for="role">Vaga desejada:</label>
+            <select name="role" id="role">
+                <option value=""></option>
+                <option value="diretor-administrativo">Diretor Administrativo</option>
+                <option value="diretor-de-projetos">Diretor de Projetos</option>
+                <option value="diretor-de-marketing">Diretor de Marketing</option>
+                <option value="coordenador">Coordenador</option>
+                <option value="membro-efetivo">Membro Efetivo</option>
+            </select>
+        </div>
+        <br>
+        <div class="container">
+            <label for="knowledge">Conhecimentos:</label>
+            <select name="knowledge" id="knowledge" multiple>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">React</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+        <br>
+        <div class="container">
+            <p>Você se identifica mais com:</p>
+
+            <input type="radio" id="front-end" name="characteristics" value="front-end">
+            <label for="front-end">Front-end</label>
+
+            <input type="radio" id="back-end" name="characteristics" value="back-end">
+            <label for="front-end">Back-end</label>
+
+            <input type="radio" id="prototype" name="characteristics" value="prototype">
+            <label for="prototype">Protótipos</label>
+
+            <input type="radio" id="other" name="characteristics" value="other">
+            <label for="other">Outro</label>
+        </div>
+        <br>
+        <div class="container">
+            <p>Qual semestre está cursando: </p>
+            <input type="checkbox" name="1" id="1">
+            <label for="1">1º</label>
+
+            <input type="checkbox" name="2" id="2">
+            <label for="2">2º</label>
+
+            <input type="checkbox" name="3" id="3">
+            <label for="3">3º</label>
+
+            <input type="checkbox" name="4" id="4">
+            <label for="4">4º</label>
+
+            <input type="checkbox" name="other" id="other">
+            <label for="other">Outro</label>
+        </div>
+        <br>
+        <input type="submit" name="send" id="send" value="Enviar">
+
+    </form>
+
+    <script>
+        function countChars(obj) {
+            document.getElementById('count').innerHTML = obj.value.length + ' caracteres'
+        }
+
+        document.getElementById('toCount').addEventListener('input', function () {
+            var text = this.value,
+                count = text.trim().replace(/\s+/g, ' ').split(' ').length;
+            document.getElementById('wordCount').textContent = count;
+        });
+    </script>
+</body>
+
+</html>

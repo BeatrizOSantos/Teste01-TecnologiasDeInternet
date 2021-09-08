@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Teste 01</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <h1>Minha Calculadora</h1>
+    <form method="GET">
+        Primeiro Número <br>
+        <input id="num1" type="number"> <br>
+        Segundo Número <br>
+        <input id="num2" type="number"> <br><br>
+
+        <select id="operacoes" onclick="operacao()">
+            <option value="">Selecione uma Operação</option>
+            <option value="somar">Somar</option>
+            <option value="subtrair">Subtrair</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="dividir">Dividir</option>
+        </select>
+        <br><br>
+        RESULTADO:<input type="text" id="txtResultado" value="">
+    </form>
+
+    <script>
+        var num1 = document.querySelector('#num1')
+        var num2 = document.querySelector('#num2')
+
+        var opt = document.getElementById('operacoes')
+
+        function operacao() {
+            var resultado
+
+            if (opt.value == 'somar') {
+                resultado = parseFloat(num1.value) + parseFloat(num2.value)
+                console.log('OPERAÇÃO: ' + num1.value + ' + ' + num2.value)
+                console.log('RESULTADO: ' + resultado)
+
+                document.getElementById('txtResultado').setAttribute("value", resultado);
+            }
+
+
+            else if (opt.value == 'subtrair') {
+                resultado = parseFloat(num1.value) - parseFloat(num2.value)
+                console.log('OPERAÇÃO: ' + num1.value + ' - ' + num2.value)
+                console.log('RESULTADO: ' + resultado)
+
+                document.getElementById('txtResultado').setAttribute("value", resultado);
+            }
+
+            else if (opt.value == 'multiplicar') {
+                resultado = parseFloat(num1.value) * parseFloat(num2.value)
+                console.log('OPERAÇÃO: ' + num1.value + ' * ' + num2.value)
+                console.log('RESULTADO: ' + resultado)
+
+                document.getElementById('txtResultado').setAttribute("value", resultado);
+            }
+
+            else if (opt.value == 'dividir') {
+                resultado = parseFloat(num1.value) / parseFloat(num2.value)
+                console.log('OPERAÇÃO: ' + num1.value + ' / ' + num2.value)
+                console.log('RESULTADO: ' + resultado)
+
+                document.getElementById('txtResultado').setAttribute("value", resultado);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
