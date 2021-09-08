@@ -26,8 +26,8 @@
         <br>
         <div class="container">
             <label for="aboutme">Fale um pouco sobre você:</label>
-            <textarea name="aboutme" id="toCount" cols="30" rows="10"></textarea>
-            <p id="countWord"><span id="wordCount">0</span> palavras</p>
+            <textarea name="aboutme" id="countW" cols="30" rows="10" maxlength="144"></textarea>
+            <p id="countWord"><span id="wordCount">0</span> palavras / 144</p>
         </div>
         <br>
         <div class="container">
@@ -88,7 +88,8 @@
         </div>
         <br>
         <input type="submit" name="send" id="send" value="Enviar">
-
+        <br><br>
+        <input type="button" onclick="exibir()" value="Exibir Formulário"/>
     </form>
 
     <script>
@@ -96,11 +97,12 @@
             document.getElementById('count').innerHTML = obj.value.length + ' caracteres'
         }
 
-        document.getElementById('toCount').addEventListener('input', function () {
+        document.getElementById('countW').addEventListener('input', function () {
             var text = this.value,
                 count = text.trim().replace(/\s+/g, ' ').split(' ').length;
             document.getElementById('wordCount').textContent = count;
         });
+
     </script>
 </body>
 
