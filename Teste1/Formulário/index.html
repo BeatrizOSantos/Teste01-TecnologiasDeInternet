@@ -35,11 +35,11 @@
             <label for="role">Vaga desejada:</label>
             <select name="role" id="role">
                 <option value=""></option>
-                <option value="diretor-administrativo">Diretor Administrativo</option>
-                <option value="diretor-de-projetos">Diretor de Projetos</option>
-                <option value="diretor-de-marketing">Diretor de Marketing</option>
-                <option value="coordenador">Coordenador</option>
-                <option value="membro-efetivo">Membro Efetivo</option>
+                <option value="Diretor-Administrativo">Diretor Administrativo</option>
+                <option value="Diretor-de-Projetos">Diretor de Projetos</option>
+                <option value="Diretor-de-Marketing">Diretor de Marketing</option>
+                <option value="Coordenador">Coordenador</option>
+                <option value="Membro-Efetivo">Membro Efetivo</option>
             </select>
         </div>
         <br>
@@ -90,8 +90,8 @@
         });
 
         function exibir() {
-            var vaga = document.querySelector("#role")
-            var conhecimento = document.querySelector("#knowledge")
+            var vaga = document.getElementById('role')
+            // var conhecimento = getElementById('knowledge')
 
             var identifica = ""
             if ($('#front-end').is(":checked")) {
@@ -106,7 +106,9 @@
                 semestre = "Entre o 5º e o 8º"
             }
 
-            alert('Opções Selecionadas\n' + '\nVaga desejada: ' + vaga + '\nConhecimentos: ' + conhecimento + '\nVocê se identifica mais com: ' + identifica + '\nQual semestre está cursando: ' + semestre)
+            // + '\nConhecimentos: ' + conhecimento 
+
+            alert('Opções Selecionadas\n' + '\nVaga desejada: ' + vaga.value + '\nVocê se identifica mais com: ' + identifica + '\nQual semestre está cursando: ' + semestre)
         }
 
     </script>
