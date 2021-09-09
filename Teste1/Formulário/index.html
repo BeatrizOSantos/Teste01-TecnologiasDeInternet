@@ -91,7 +91,15 @@
 
         function exibir() {
             var vaga = document.getElementById('role')
-            // var conhecimento = getElementById('knowledge')
+            var select = document.getElementById('knowledge');
+            var items = [];
+
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].selected) {
+                    items.push(select.options[i].value);
+                }
+            }
+            conhecimento = { id_estilo: items };
 
             var identifica = ""
             if ($('#front-end').is(":checked")) {
@@ -106,9 +114,7 @@
                 semestre = "Entre o 5º e o 8º"
             }
 
-            // + '\nConhecimentos: ' + conhecimento 
-
-            alert('Opções Selecionadas\n' + '\nVaga desejada: ' + vaga.value + '\nVocê se identifica mais com: ' + identifica + '\nQual semestre está cursando: ' + semestre)
+            alert('Opções Selecionadas\n' + '\nVaga desejada: ' + vaga.value + '\nConhecimentos: ' + conhecimento + '\nVocê se identifica mais com: ' + identifica + '\nQual semestre está cursando: ' + semestre)
         }
 
     </script>
