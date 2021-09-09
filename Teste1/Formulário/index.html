@@ -91,15 +91,7 @@
 
         function exibir() {
             var vaga = document.getElementById('role')
-            var select = document.getElementById('knowledge');
-            var items = [];
-
-            for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].selected) {
-                    items.push(select.options[i].value);
-                }
-            }
-            conhecimento = { id_estilo: items };
+            var conhecimento = $('#knowledge').val();
 
             var identifica = ""
             if ($('#front-end').is(":checked")) {
