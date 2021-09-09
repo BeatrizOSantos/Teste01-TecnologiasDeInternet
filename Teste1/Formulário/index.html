@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário - Teste 01</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
         <div class="container">
             <label for="aboutme">Fale um pouco sobre você:</label>
             <textarea name="aboutme" id="countW" cols="30" rows="10" maxlength="144"></textarea>
-            <p id="countWord"><span id="wordCount">0</span> palavras / 144</p>
+            <p id="countWord"><span id="wordCount">0</span> palavras (máx. 144 caracteres)</p>
         </div>
         <br>
         <div class="container">
@@ -61,35 +62,20 @@
 
             <input type="radio" id="back-end" name="characteristics" value="back-end">
             <label for="front-end">Back-end</label>
-
-            <input type="radio" id="prototype" name="characteristics" value="prototype">
-            <label for="prototype">Protótipos</label>
-
-            <input type="radio" id="other" name="characteristics" value="other">
-            <label for="other">Outro</label>
         </div>
         <br>
         <div class="container">
             <p>Qual semestre está cursando: </p>
-            <input type="checkbox" name="1" id="1">
-            <label for="1">1º</label>
+            <input type="checkbox" name="1-4" id="1-4">
+            <label for="1-4">Entre o 1º e o 4º</label>
 
-            <input type="checkbox" name="2" id="2">
-            <label for="2">2º</label>
-
-            <input type="checkbox" name="3" id="3">
-            <label for="3">3º</label>
-
-            <input type="checkbox" name="4" id="4">
-            <label for="4">4º</label>
-
-            <input type="checkbox" name="other" id="other">
-            <label for="other">Outro</label>
+            <input type="checkbox" name="5-8" id="5-8">
+            <label for="5-8">Entre o 5º e o 8º</label>
         </div>
         <br>
         <input type="submit" name="send" id="send" value="Enviar">
         <br><br>
-        <input type="button" onclick="exibir()" value="Exibir Formulário"/>
+        <input type="button" onclick="exibir()" value="Exibir Formulário" />
     </form>
 
     <script>
@@ -102,6 +88,26 @@
                 count = text.trim().replace(/\s+/g, ' ').split(' ').length;
             document.getElementById('wordCount').textContent = count;
         });
+
+        function exibir() {
+            var vaga = document.querySelector("#role")
+            var conhecimento = document.querySelector("#knowledge")
+
+            var identifica = ""
+            if ($('#front-end').is(":checked")) {
+                identifica = "Front-end"
+            } else if ($('#back-end').is(":checked")) {
+                identifica = "Back-end"
+            }
+            var semestre = ""
+            if ($('#1-4').is(":checked")) {
+                semestre = "Entre o 1º e o 4º"
+            } else if ($('#5-8').is(":checked")) {
+                semestre = "Entre o 5º e o 8º"
+            }
+
+            alert('Opções Selecionadas\n' + '\nVaga desejada: ' + vaga + '\nConhecimentos: ' + conhecimento + '\nVocê se identifica mais com: ' + identifica + '\nQual semestre está cursando: ' + semestre)
+        }
 
     </script>
 </body>
